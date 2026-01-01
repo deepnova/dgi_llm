@@ -1,0 +1,38 @@
+[2025-11-17 18:31:18,654] [1230] [281473801367648] [llmmodels] [INFO] [model_runner.py-282] : model:
+ FlashQwen2ForCausalLM(
+  (rotary_embedding): PositionRotaryEmbedding()
+  (attn_mask): AttentionMask()
+  (transformer): FlashQwenModel(
+    (wte): TensorParallelEmbedding()
+    (h): ModuleList(
+      (0-63): 64 x FlashQwenLayer(
+        (attn): FlashQwenAttention(
+          (rotary_emb): PositionRotaryEmbedding()
+          (c_attn): TensorParallelColumnLinear(
+            (linear): FastLinear()
+          )
+          (c_proj): TensorParallelRowLinear(
+            (linear): FastLinear()
+          )
+          (q_norm): QwenRMSNorm()
+          (k_norm): QwenRMSNorm()
+        )
+        (mlp): QwenMLP(
+          (act): SiLU()
+          (w2_w1): TensorParallelColumnLinear(
+            (linear): FastLinear()
+          )
+          (c_proj): TensorParallelRowLinear(
+            (linear): FastLinear()
+          )
+        )
+        (ln_1): QwenRMSNorm()
+        (ln_2): QwenRMSNorm()
+      )
+    )
+    (ln_f): QwenRMSNorm()
+  )
+  (lm_head): TensorParallelHead(
+    (linear): FastLinear()
+  )
+)
